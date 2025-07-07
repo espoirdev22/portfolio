@@ -1,5 +1,5 @@
- // Portfolio Data Loader (Version intégrée)
- class PortfolioLoader {
+// Portfolio Data Loader (Version intégrée)
+class PortfolioLoader {
     constructor() {
         this.data = null;
         this.loadData();
@@ -19,9 +19,7 @@
         }
     }
 
-   
     // Données par défaut intégrées
-    /*
     loadDefaultData() {
         this.data = {
             projects: [
@@ -156,7 +154,7 @@
         };
         this.renderPortfolio();
     }
-*/
+
     // Rendu des projets
     renderProjects() {
         const projectsGrid = document.querySelector('.projects-grid');
@@ -188,7 +186,7 @@
             <div class="tech-stack">
                 ${techTags}
             </div>
-            <a href="${project.githubUrl}" class="project-link">
+            <a href="${project.githubUrl}" class="project-link" target="_blank">
                 <i class="fab fa-github"></i> Voir sur GitHub
             </a>
         `;
@@ -236,15 +234,15 @@
         const profileName = document.querySelector('.profile-name');
         if (profileName) profileName.textContent = profile.name;
 
+        const profileTitle = document.querySelector('.profile-title');
+        if (profileTitle) profileTitle.textContent = profile.title;
+
         // Mettre à jour les statistiques
         if (profile.stats) {
             const statNumbers = document.querySelectorAll('.stat-number');
             
-            if (statNumbers.length >= 4) {
-                statNumbers[0].textContent = profile.stats.experience;
-                statNumbers[1].textContent = profile.stats.technologies;
-                statNumbers[2].textContent = profile.stats.projects;
-                statNumbers[3].textContent = profile.stats.satisfaction;
+            if (statNumbers.length >= 1) {
+                statNumbers[0].textContent = profile.stats.satisfaction;
             }
         }
 
@@ -371,19 +369,111 @@
     }
 }
 
+// ===== FONCTIONS MENU MOBILE =====
+
+// Fonction pour basculer l'affichage du menu mobile
+function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (navLinks) {
+        navLinks.classList.toggle('active');
+        
+        // Changer l'icône du menu hamburger
+        const icon = mobileMenu.querySelector('i');
+        if (icon) {
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    }
+}
+
+// Fonction pour fermer le menu mobile
+function closeMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (navLinks) {
+        navLinks.classList.remove('active');
+        
+        // Remettre l'icône hamburger
+        const icon = mobileMenu.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+}
+
 // Initialiser le portfolio quand le DOM est chargé
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialiser le portfolio
     window.portfolioLoader = new PortfolioLoader();
     
     // Initialiser la navigation fluide
     portfolioLoader.initSmoothScrolling();
+    
+    // ===== GESTION DU MENU MOBILE =====
+    
+    // Fermer le menu mobile quand on clique en dehors
+    document.addEventListener('click', function(event) {
+        const navLinks = document.getElementById('navLinks');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        // Si on clique en dehors du menu et qu'il est ouvert
+        if (navLinks && mobileMenu && 
+            !navLinks.contains(event.target) && 
+            !mobileMenu.contains(event.target) &&
+            navLinks.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
+    // Fermer le menu mobile lors du redimensionnement de la fenêtre
+    window.addEventListener('resize', function() {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks && window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
+    
+    // ===== EFFET PARALLAXE =====
     
     // Effet de parallaxe simple pour le hero
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const hero = document.querySelector('.hero');
         if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
         }
     });
+    
+    // ===== ANIMATION AU SCROLL =====
+    
+    // Animation supplémentaire pour les barres de compétences
+    const skillBars = document.querySelectorAll('.skill-bar');
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBar = entry.target;
+                const width = skillBar.style.width;
+                skillBar.style.width = '0%';
+                setTimeout(() => {
+                    skillBar.style.width = width;
+                }, 200);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    // Observer les barres de compétences après un délai pour s'assurer qu'elles sont chargées
+    setTimeout(() => {
+        document.querySelectorAll('.skill-bar').forEach(bar => {
+            skillObserver.observe(bar);
+        });
+    }, 1000);
 });
