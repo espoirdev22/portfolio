@@ -1,0 +1,126 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "title": "Système de Gestion d'Incidents",
+        "description": "Application complète de gestion d'incidents avec gestion des rôles (responsable, rapporteur, admin) développée en Java. Système de workflow avancé et interface utilisateur intuitive.",
+        "icon": "fas fa-bullseye",
+        "technologies": ["Java", "Spring Boot", "MySQL", "REST API"],
+        "githubUrl": "https://github.com/espoirdev22/JEE.git",
+        "demoUrl": null,
+        "featured": true
+      },
+      {
+        "id": 2,
+        "title": "Gestion de Tâches Éducatives",
+        "description": "Plateforme collaborative pour la gestion des tâches entre élèves et professeurs. Interface moderne avec tableau de bord personnalisé et système de notifications.",
+        "icon": "fas fa-graduation-cap",
+        "technologies": ["Django", "Python", "PostgreSQL", "Bootstrap"],
+        "githubUrl": "https://github.com/espoirdev22/projetDjango.git",
+        "demoUrl": null,
+        "featured": true
+      },
+      {
+        "id": 3,
+        "title": "Application Web Angular",
+        "description": "Application web innovante développée avec Angular, offrant une interface réactive et moderne pour la gestion de smartphones. Intégration complète avec des services backend.",
+        "icon": "fas fa-globe", 
+        "technologies": ["Angular", "TypeScript"],
+        "githubUrl": "https://github.com/espoirdev22/gestion-de-smatphone.git",
+        "demoUrl": null,
+        "featured": true
+      },          
+      {
+        "id": 4,
+        "title": "Application Météo Flutter",
+        "description": "Application météo complète développée en Flutter avec géolocalisation, prévisions détaillées et interface utilisateur moderne et responsive.",
+        "icon": "fas fa-cloud-sun",
+        "technologies": ["Flutter", "Dart", "Weather API", "Geolocation"],
+        "githubUrl": "https://github.com/espoirdev22/meteo.git",
+        "demoUrl": null,
+        "featured": true
+      },
+      {
+        "id": 5,
+        "title": "Application Android Social Réseau",
+        "description": "API robuste développée avec Laravel pour alimenter une application Android. Architecture RESTful complète avec authentification et gestion des données.",
+        "icon": "fas fa-link",
+        "technologies": ["Laravel", "Android", "Java", "XML", "MySQL"],
+        "githubUrl": "https://github.com/espoirdev22/projet_android_social_reseau.git",
+        "demoUrl": null,
+        "featured": true
+      },
+      {
+        "id": 6,
+        "title": "Service SMS Temps Réel",
+        "description": "Application de service à valeur ajoutée pour l'envoi et la réception de SMS en temps réel. Solution complète avec interface web et intégration SMS gateway.",
+        "icon": "fas fa-sms",
+        "technologies": ["javascript", "WebSocket", "SMS Gateway", "Real-time"],
+        "githubUrl": "https://github.com/espoirdev22/plateforme_sms.git",
+        "demoUrl": null,
+        "featured": true
+      }
+    ],
+    "skills": [
+      {
+        "id": 1,
+        "name": "Java",
+        "description": "Développement d'applications robustes et scalables avec une expertise en programmation orientée objet et frameworks Java.",
+        "icon": "fab fa-java",
+        "level": 90
+      },
+      {
+        "id": 2,
+        "name": "Django",
+        "description": "Création d'applications web complexes avec Python Django, maîtrise des ORM et des architectures MVC.",
+        "icon": "fab fa-python",
+        "level": 85
+      },
+      {
+        "id": 3,
+        "name": "Angular",
+        "description": "Développement d'applications web dynamiques et interactives avec Angular, TypeScript et RxJS.",
+        "icon": "fab fa-angular",
+        "level": 88
+      },
+      {
+        "id": 4,
+        "name": "Laravel",
+        "description": "Développement d'APIs RESTful et applications web avec PHP Laravel, maîtrise d'Eloquent ORM.",
+        "icon": "fab fa-laravel",
+        "level": 92
+      },
+      {
+        "id": 5,
+        "name": "Flutter",
+        "description": "Création d'applications mobiles cross-platform performantes avec Dart et Flutter.",
+        "icon": "fas fa-mobile-alt",
+        "level": 87
+      },
+      {
+        "id": 6,
+        "name": "Android",
+        "description": "Développement d'applications Android natives avec Java/Kotlin, XML et intégration d'APIs.",
+        "icon": "fab fa-android",
+        "level": 85
+      }
+    ],
+    "profile": {
+      "name": "Salou Diallo",
+      "title": "Développeur Full Stack ",
+      "description": "Passionné par l'innovation technologique et le développement de solutions digitales performantes.",
+      "email": "saloudiallo151@gmail.com",
+      "github": "github.com/espoirdev22",
+      "linkedin": "linkedin.com/in/diallo-salou-163608309",
+      "phone": "+221 77 671 62 06",
+        "location": "Dakar, Sénégal",
+      "expertise": [
+        "Architecture logicielle",
+        "APIs RESTful",
+        "Bases de données",
+        "DevOps & CI/CD",
+        "UI/UX Design",
+        "Tests automatisés"
+      ]
+    }
+  }

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Expert - Développeur Full Stack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Portfolio Expert</div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMobileMenu()">Accueil</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">À propos</a></li>
+                <li><a href="#skills" onclick="closeMobileMenu()">Compétences</a></li>
+                <li><a href="#projects" onclick="closeMobileMenu()">Projets</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Développeur Full Stack Expert</h1>
+            <p>Spécialisé en développement web et mobile avec une expertise multi-technologies</p>
+            <a href="#about" class="cta-button">Découvrir mon profil</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">À Propos de Moi</h2>
+            <div class="about-content">
+                <div class="profile-card animate-on-scroll">
+                    <div class="profile-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="profile-name" id="profileName">Alex Martin</div>
+                    <div class="profile-title">Développeur Full Stack Expert</div>
+                    <p style="color: #666; line-height: 1.6;">Passionné par l'innovation technologique et le développement de solutions digitales performantes.</p>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Satisfaction client</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text animate-on-scroll">
+                    <h3>Mon Parcours Professionnel</h3>
+                    <p>
+                        Développeur <span class="highlight">Full Stack</span> passionné avec une solide expérience dans le développement d'applications web et mobiles. 
+                        Ma spécialité réside dans la création de solutions technologiques innovantes qui répondent aux besoins spécifiques de chaque projet.
+                    </p>
+                    <p>
+                        Fort d'une expertise diversifiée allant du <span class="highlight">développement backend</span> avec Java et Laravel, 
+                        au <span class="highlight">développement frontend</span> avec Angular, en passant par le <span class="highlight">développement mobile</span> 
+                        avec Flutter et Android, je maîtrise l'ensemble de la chaîne de développement.
+                    </p>
+                    <p>
+                        Mon approche se base sur les <span class="highlight">bonnes pratiques</span> de développement, 
+                        l'architecture logicielle robuste et l'expérience utilisateur optimale. Chaque projet est une opportunité 
+                        d'apporter des solutions créatives et performantes.
+                    </p>
+
+                    <div class="expertise-list" id="expertiseList">
+                        <div class="expertise-item">Développement Web</div>
+                        <div class="expertise-item">Applications Mobile</div>
+                        <div class="expertise-item">Architecture Logicielle</div>
+                        <div class="expertise-item">Base de Données</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Mes Compétences</h2>
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Les compétences seront chargées dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll" style="color: white;">Mes Projets</h2>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Les projets seront chargés dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Me Contacter</h2>
+            <div class="contact-info">
+                <div class="contact-item animate-on-scroll">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:contact@alexmartin.dev"><p>contact@alexmartin.dev</p></a>
+                </div>
+                <div class="contact-item animate-on-scroll">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>github.com/alexmartin</p>
+                </div>
+                <div class="contact-item animate-on-scroll">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>linkedin.com/in/alexmartin</p>
+                </div>
+                <div class="contact-item animate-on-scroll">
+                    <i class="fas fa-phone"></i>
+                    <h3>Téléphone</h3>
+                    <p>+221 671 62 06</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
