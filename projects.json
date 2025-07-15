@@ -6,7 +6,7 @@
         "description": "Application complète de gestion d'incidents avec gestion des rôles (responsable, rapporteur, admin) développée en Java. Système de workflow avancé et interface utilisateur intuitive.",
         "icon": "fas fa-bullseye",
         "technologies": ["Java", "Spring Boot", "MySQL", "REST API"],
-        "githubUrl": "https://github.com/espoirdev22/JEE.git",
+        "githubUrl": "https://github.com/espoirdev22/gestion_incidents",
         "demoUrl": null,
         "featured": true
       },

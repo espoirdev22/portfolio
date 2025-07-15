@@ -15,11 +15,12 @@ class PortfolioLoader {
             this.renderPortfolio();
         } catch (error) {
             console.log('Fichier JSON non trouvé, utilisation des données par défaut');
-            this.loadDefaultData();
+           
         }
     }
 
     // Données par défaut intégrées
+    /*
     loadDefaultData() {
         this.data = {
             projects: [
@@ -154,7 +155,7 @@ class PortfolioLoader {
         };
         this.renderPortfolio();
     }
-
+    */
     // Rendu des projets
     renderProjects() {
         const projectsGrid = document.querySelector('.projects-grid');
