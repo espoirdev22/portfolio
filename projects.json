@@ -1,126 +1,142 @@
 {
-    "projects": [
-      {
-        "id": 1,
-        "title": "Système de Gestion d'Incidents",
-        "description": "Application complète de gestion d'incidents avec gestion des rôles (responsable, rapporteur, admin) développée en Java. Système de workflow avancé et interface utilisateur intuitive.",
-        "icon": "fas fa-bullseye",
-        "technologies": ["Java", "Spring Boot", "MySQL", "REST API"],
-        "githubUrl": "https://github.com/espoirdev22/gestion_incidents",
-        "demoUrl": null,
-        "featured": true
-      },
-      {
-        "id": 2,
-        "title": "Gestion de Tâches Éducatives",
-        "description": "Plateforme collaborative pour la gestion des tâches entre élèves et professeurs. Interface moderne avec tableau de bord personnalisé et système de notifications.",
-        "icon": "fas fa-graduation-cap",
-        "technologies": ["Django", "Python", "PostgreSQL", "Bootstrap"],
-        "githubUrl": "https://github.com/espoirdev22/projetDjango.git",
-        "demoUrl": null,
-        "featured": true
-      },
-      {
-        "id": 3,
-        "title": "Application Web Angular",
-        "description": "Application web innovante développée avec Angular, offrant une interface réactive et moderne pour la gestion de smartphones. Intégration complète avec des services backend.",
-        "icon": "fas fa-globe", 
-        "technologies": ["Angular", "TypeScript"],
-        "githubUrl": "https://github.com/espoirdev22/gestion-de-smatphone.git",
-        "demoUrl": null,
-        "featured": true
-      },          
-      {
-        "id": 4,
-        "title": "Application Météo Flutter",
-        "description": "Application météo complète développée en Flutter avec géolocalisation, prévisions détaillées et interface utilisateur moderne et responsive.",
-        "icon": "fas fa-cloud-sun",
-        "technologies": ["Flutter", "Dart", "Weather API", "Geolocation"],
-        "githubUrl": "https://github.com/espoirdev22/meteo.git",
-        "demoUrl": null,
-        "featured": true
-      },
-      {
-        "id": 5,
-        "title": "Application Android Social Réseau",
-        "description": "API robuste développée avec Laravel pour alimenter une application Android. Architecture RESTful complète avec authentification et gestion des données.",
-        "icon": "fas fa-link",
-        "technologies": ["Laravel", "Android", "Java", "XML", "MySQL"],
-        "githubUrl": "https://github.com/espoirdev22/projet_android_social_reseau.git",
-        "demoUrl": null,
-        "featured": true
-      },
-      {
-        "id": 6,
-        "title": "Service SMS Temps Réel",
-        "description": "Application de service à valeur ajoutée pour l'envoi et la réception de SMS en temps réel. Solution complète avec interface web et intégration SMS gateway.",
-        "icon": "fas fa-sms",
-        "technologies": ["javascript", "WebSocket", "SMS Gateway", "Real-time"],
-        "githubUrl": "https://github.com/espoirdev22/plateforme_sms.git",
-        "demoUrl": null,
-        "featured": true
-      }
-    ],
-    "skills": [
-      {
-        "id": 1,
-        "name": "Java",
-        "description": "Développement d'applications robustes et scalables avec une expertise en programmation orientée objet et frameworks Java.",
-        "icon": "fab fa-java",
-        "level": 90
-      },
-      {
-        "id": 2,
-        "name": "Django",
-        "description": "Création d'applications web complexes avec Python Django, maîtrise des ORM et des architectures MVC.",
-        "icon": "fab fa-python",
-        "level": 85
-      },
-      {
-        "id": 3,
-        "name": "Angular",
-        "description": "Développement d'applications web dynamiques et interactives avec Angular, TypeScript et RxJS.",
-        "icon": "fab fa-angular",
-        "level": 88
-      },
-      {
-        "id": 4,
-        "name": "Laravel",
-        "description": "Développement d'APIs RESTful et applications web avec PHP Laravel, maîtrise d'Eloquent ORM.",
-        "icon": "fab fa-laravel",
-        "level": 92
-      },
-      {
-        "id": 5,
-        "name": "Flutter",
-        "description": "Création d'applications mobiles cross-platform performantes avec Dart et Flutter.",
-        "icon": "fas fa-mobile-alt",
-        "level": 87
-      },
-      {
-        "id": 6,
-        "name": "Android",
-        "description": "Développement d'applications Android natives avec Java/Kotlin, XML et intégration d'APIs.",
-        "icon": "fab fa-android",
-        "level": 85
-      }
-    ],
-    "profile": {
-      "name": "Salou Diallo",
-      "title": "Développeur Full Stack ",
-      "description": "Passionné par l'innovation technologique et le développement de solutions digitales performantes.",
-      "email": "saloudiallo151@gmail.com",
-      "github": "github.com/espoirdev22",
-      "linkedin": "linkedin.com/in/diallo-salou-163608309",
-      "phone": "+221 77 671 62 06",
-        "location": "Dakar, Sénégal",
-      "expertise": [
-        "Architecture logicielle",
-        "APIs RESTful",
-        "Bases de données",
-        "DevOps & CI/CD",
-        "UI/UX Design",
-        "Tests automatisés"
+  "profile": {
+    "name": "Salou Diallo",
+    "title": "Développeur Front-End & DevOps",
+    "description": "Développeur front-end maîtrisant React et Angular, avec une culture DevOps solide — pipelines CI/CD, Kubernetes, monitoring Prometheus/Grafana et intégration API telecom Orange.",
+    "email": "saloudiallo151@gmail.com",
+    "phone": "+221 77 671 62 06",
+    "github": "https://github.com/espoirdev22",
+    "linkedin": "https://linkedin.com/in/diallo-salou-163608309",
+    "dockerhub": "espoirdev22",
+    "location": "Dakar, Sénégal",
+    "disponibilite": "Immédiate",
+    "formation": "Licence Dév. Réparti · ESMT",
+    "certification": "AWS re/Start · Orange Digital Center"
+  },
+  "stats": [
+    { "value": "6+", "label": "Projets livrés" },
+    { "value": "2",  "label": "Frameworks front" },
+    { "value": "AWS","label": "Certifié ODC" },
+    { "value": "CI/CD","label": "Pipeline complet" }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "tag": "React · Node.js · Télécom",
+      "tagType": "front",
+      "featured": true,
+      "title": "Plateforme SMS & Appels — Orange API",
+      "description": "Application web React pour la gestion des SMS sortants, appels sortants et historique de communication. Intégration de l'API Orange (SMS API, Voice API) via un backend Express sécurisé — les clés API ne sont jamais exposées côté client.",
+      "technologies": ["React", "Node.js", "Express", "Orange API", "Axios", "Tailwind CSS"],
+      "githubUrl": "https://github.com/espoirdev22/plateforme_sms.git"
+    },
+    {
+      "id": 2,
+      "tag": "Docker · Kubernetes · Jenkins",
+      "tagType": "devops",
+      "featured": true,
+      "title": "DevOps Monitoring Stack — Portfolio API",
+      "description": "Pipeline CI/CD complet avec Jenkins : tests automatisés, analyse SonarQube (Quality Gate), build et push Docker Hub, déploiement Kubernetes. Monitoring avec Prometheus + Grafana, dashboards custom et alertes configurées.",
+      "technologies": ["Jenkins", "Docker", "Kubernetes", "Prometheus", "Grafana", "SonarQube"],
+      "githubUrl": "https://github.com/espoirdev22/portfolio_api"
+    },
+    {
+      "id": 3,
+      "tag": "Angular · TypeScript",
+      "tagType": "front",
+      "featured": false,
+      "title": "Gestion Commerciale de Smartphones",
+      "description": "Application Angular pour la gestion des ventes, stock, clients et SAV d'une boutique de smartphones. Architecture modulaire avec Angular Material, RxJS et services HTTP.",
+      "technologies": ["Angular 17", "TypeScript", "Angular Material", "RxJS"],
+      "githubUrl": "https://github.com/espoirdev22/gestion-de-smatphone.git"
+    },
+    {
+      "id": 4,
+      "tag": "Laravel · PHP · VPS",
+      "tagType": "front",
+      "featured": false,
+      "title": "Coulibalydepot — Gestion Commerciale",
+      "description": "Application web bilingue (Français/Arabe) pour une quincaillerie mauritanienne. Gestion des ventes, stock, paiements, dépenses, rapports PDF mensuels. Déployée sur VPS Contabo avec Nginx, PHP 8.2, MySQL 8 et SSL.",
+      "technologies": ["Laravel", "MySQL", "Nginx", "DomPDF", "Ubuntu VPS"],
+      "githubUrl": "https://github.com/espoirdev22"
+    },
+    {
+      "id": 5,
+      "tag": "Java · Spring Boot",
+      "tagType": "front",
+      "featured": false,
+      "title": "Système de Gestion d'Incidents",
+      "description": "Application complète de gestion d'incidents avec gestion des rôles (responsable, rapporteur, admin). Système de workflow avancé et API REST.",
+      "technologies": ["Java", "Spring Boot", "MySQL", "REST API"],
+      "githubUrl": "https://github.com/espoirdev22/gestion_incidents"
+    },
+    {
+      "id": 6,
+      "tag": "Python · NLP",
+      "tagType": "front",
+      "featured": false,
+      "title": "Traduction Automatique Français–Wolof",
+      "description": "Modèle NLP pour la traduction automatique vers le Wolof, langue nationale sénégalaise. Preprocessing des données linguistiques et expérimentation de modèles seq2seq.",
+      "technologies": ["Python", "NLP", "seq2seq", "Preprocessing"],
+      "githubUrl": "https://github.com/espoirdev22"
+    }
+  ],
+  "stack": [
+    {
+      "group": "Front-End",
+      "items": [
+        { "name": "HTML5",           "icon": "fab fa-html5" },
+        { "name": "CSS3",            "icon": "fab fa-css3-alt" },
+        { "name": "JavaScript ES6+", "icon": "fab fa-js" },
+        { "name": "React",           "icon": "fab fa-react" },
+        { "name": "Angular 17",      "icon": "fab fa-angular" },
+        { "name": "TypeScript",      "icon": "fab fa-js-square" },
+        { "name": "Tailwind CSS",    "icon": "fab fa-css3" },
+        { "name": "Bootstrap",       "icon": "fab fa-bootstrap" }
+      ]
+    },
+    {
+      "group": "Back-End",
+      "items": [
+        { "name": "Node.js",         "icon": "fab fa-node-js" },
+        { "name": "Express",         "icon": "fab fa-node" },
+        { "name": "Laravel",         "icon": "fab fa-laravel" },
+        { "name": "Django",          "icon": "fab fa-python" },
+        { "name": "FastAPI",         "icon": "fab fa-python" },
+        { "name": "Spring Boot",     "icon": "fab fa-java" },
+        { "name": "REST API",        "icon": "fas fa-plug" }
+      ]
+    },
+    {
+      "group": "DevOps & Cloud",
+      "items": [
+        { "name": "Docker",          "icon": "fab fa-docker" },
+        { "name": "Kubernetes",      "icon": "fas fa-dharmachakra" },
+        { "name": "Jenkins",         "icon": "fab fa-jenkins" },
+        { "name": "SonarQube",       "icon": "fas fa-bug" },
+        { "name": "Prometheus",      "icon": "fas fa-fire" },
+        { "name": "Grafana",         "icon": "fas fa-chart-line" },
+        { "name": "AWS EC2",         "icon": "fab fa-aws" },
+        { "name": "Terraform",       "icon": "fas fa-layer-group" },
+        { "name": "GitHub Actions",  "icon": "fab fa-github" }
+      ]
+    },
+    {
+      "group": "Bases de données & Outils",
+      "items": [
+        { "name": "MySQL",           "icon": "fas fa-database" },
+        { "name": "PostgreSQL",      "icon": "fas fa-database" },
+        { "name": "Firebase",        "icon": "fas fa-fire-alt" },
+        { "name": "Git",             "icon": "fab fa-git-alt" },
+        { "name": "Postman",         "icon": "fas fa-paper-plane" },
+        { "name": "VS Code",         "icon": "fas fa-code" },
+        { "name": "Orange API",      "icon": "fas fa-mobile-alt" }
       ]
     }
-  }
+  ],
+  "terminal_lines": [
+    "Développeur Front-End & DevOps",
+    "React · Angular · Kubernetes",
+    "Orange API · AWS · CI/CD"
+  ]
+}

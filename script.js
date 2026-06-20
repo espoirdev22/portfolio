@@ -1,480 +1,260 @@
-// Portfolio Data Loader (Version intégrée)
-class PortfolioLoader {
+/* ============================================================
+   PORTFOLIO SALOU DIALLO — script.js
+   ============================================================ */
+
+   class Portfolio {
     constructor() {
-        this.data = null;
-        this.loadData();
-        this.initScrollAnimations();
+      this.data = null;
+      this.init();
     }
-
-    // Charger les données depuis le fichier JSON ou utiliser les données par défaut
+  
+    async init() {
+      await this.loadData();
+      this.renderStats();
+      this.renderProjects();
+      this.renderStack();
+      this.renderContact();
+      this.renderFooter();
+      this.initTerminal();
+      this.initScrollAnimations();
+      this.initNav();
+    }
+  
+    /* ---------- CHARGEMENT DES DONNÉES ---------- */
     async loadData() {
-        try {
-            // Tentative de chargement depuis le fichier JSON
-            const response = await fetch('projects.json');
-            this.data = await response.json();
-            this.renderPortfolio();
-        } catch (error) {
-            console.log('Fichier JSON non trouvé, utilisation des données par défaut');
-           
-        }
+      try {
+        const res = await fetch('projects.json');
+        this.data = await res.json();
+      } catch (e) {
+        console.error('Impossible de charger data.json', e);
+      }
     }
-
-    // Données par défaut intégrées
-    /*
-    loadDefaultData() {
-        this.data = {
-            projects: [
-                {
-                    id: 1,
-                    title: "Système de Gestion d'Incidents",
-                    description: "Application complète de gestion d'incidents avec gestion des rôles (responsable, rapporteur, admin) développée en Java. Système de workflow avancé et interface utilisateur intuitive.",
-                    icon: "fas fa-bullseye",
-                    technologies: ["Java", "Spring Boot", "MySQL", "REST API"],
-                    githubUrl: "#",
-                    demoUrl: null,
-                    featured: true
-                },
-                {
-                    id: 2,
-                    title: "Gestion de Tâches Éducatives",
-                    description: "Plateforme collaborative pour la gestion des tâches entre élèves et professeurs. Interface moderne avec tableau de bord personnalisé et système de notifications.",
-                    icon: "fas fa-graduation-cap",
-                    technologies: ["Django", "Python", "PostgreSQL", "Bootstrap"],
-                    githubUrl: "#",
-                    demoUrl: null,
-                    featured: true
-                },
-                {
-                    id: 3,
-                    title: "Application Mobile Angular",
-                    description: "Application mobile innovante conçue avec Angular et Ionic, offrant une expérience utilisateur fluide et des fonctionnalités avancées.",
-                    icon: "fas fa-mobile-alt",
-                    technologies: ["Angular", "Ionic", "TypeScript", "Cordova"],
-                    githubUrl: "#",
-                    demoUrl: null,
-                    featured: true
-                },
-                {
-                    id: 4,
-                    title: "Application Météo Flutter",
-                    description: "Application météo complète développée en Flutter avec géolocalisation, prévisions détaillées et interface utilisateur moderne et responsive.",
-                    icon: "fas fa-cloud-sun",
-                    technologies: ["Flutter", "Dart", "Weather API", "Geolocation"],
-                    githubUrl: "https://github.com/espoirdev22/meteo.git",
-                    demoUrl: null,
-                    featured: true
-                },
-                {
-                    id: 5,
-                    title: "API Android avec Laravel",
-                    description: "API robuste développée avec Laravel pour alimenter une application Android. Architecture RESTful complète avec authentification et gestion des données.",
-                    icon: "fas fa-link",
-                    technologies: ["Laravel", "Android", "Java", "XML", "MySQL"],
-                    githubUrl: "#",
-                    demoUrl: null,
-                    featured: true
-                },
-                {
-                    id: 6,
-                    title: "Service SMS Temps Réel",
-                    description: "Application de service à valeur ajoutée pour l'envoi et la réception de SMS en temps réel. Solution complète avec interface web et intégration SMS gateway.",
-                    icon: "fas fa-sms",
-                    technologies: ["Laravel", "WebSocket", "SMS Gateway", "Real-time"],
-                    githubUrl: "#",
-                    demoUrl: null,
-                    featured: true
-                }
-            ],
-            skills: [
-                {
-                    id: 1,
-                    name: "Java",
-                    description: "Développement d'applications robustes et scalables avec une expertise en programmation orientée objet et frameworks Java.",
-                    icon: "fab fa-java",
-                    level: 90
-                },
-                {
-                    id: 2,
-                    name: "Django",
-                    description: "Création d'applications web complexes avec Python Django, maîtrise des ORM et des architectures MVC.",
-                    icon: "fab fa-python",
-                    level: 85
-                },
-                {
-                    id: 3,
-                    name: "Angular",
-                    description: "Développement d'applications web dynamiques et interactives avec Angular, TypeScript et RxJS.",
-                    icon: "fab fa-angular",
-                    level: 88
-                },
-                {
-                    id: 4,
-                    name: "Laravel",
-                    description: "Développement d'APIs RESTful et applications web avec PHP Laravel, maîtrise d'Eloquent ORM.",
-                    icon: "fab fa-laravel",
-                    level: 92
-                },
-                {
-                    id: 5,
-                    name: "Flutter",
-                    description: "Création d'applications mobiles cross-platform performantes avec Dart et Flutter.",
-                    icon: "fas fa-mobile-alt",
-                    level: 87
-                },
-                {
-                    id: 6,
-                    name: "Android",
-                    description: "Développement d'applications Android natives avec Java/Kotlin, XML et intégration d'APIs.",
-                    icon: "fab fa-android",
-                    level: 85
-                }
-            ],
-            profile: {
-                name: "Salou Diallo",
-                title: "Développeur Full Stack Expert",
-                description: "Passionné par l'innovation technologique et le développement de solutions digitales performantes.",
-                email: "saloudiallo151@gmail.com",
-                github: "github.com/espoirdev22",
-                linkedin: "linkedin.com/in/votre-profil",
-                phone: "+221 XX XXX XX XX",
-                stats: {
-                    experience: "5+",
-                    technologies: "6+",
-                    projects: "20+",
-                    satisfaction: "100%"
-                },
-                expertise: [
-                    "Architecture logicielle",
-                    "APIs RESTful",
-                    "Bases de données",
-                    "DevOps & CI/CD",
-                    "UI/UX Design",
-                    "Tests automatisés"
-                ]
-            }
-        };
-        this.renderPortfolio();
+  
+    /* ---------- STATS ---------- */
+    renderStats() {
+      const container = document.getElementById('stats-container');
+      if (!container || !this.data) return;
+  
+      container.innerHTML = this.data.stats.map(s => `
+        <div class="stat fade-up">
+          <div class="stat-num">${s.value}</div>
+          <div class="stat-label">${s.label}</div>
+        </div>
+      `).join('');
     }
-    */
-    // Rendu des projets
+  
+    /* ---------- PROJETS ---------- */
     renderProjects() {
-        const projectsGrid = document.querySelector('.projects-grid');
-        if (!projectsGrid || !this.data) return;
-
-        projectsGrid.innerHTML = '';
-
-        this.data.projects.forEach(project => {
-            const projectCard = this.createProjectCard(project);
-            projectsGrid.appendChild(projectCard);
-        });
+      const grid = document.getElementById('projects-grid');
+      if (!grid || !this.data) return;
+  
+      grid.innerHTML = this.data.projects.map(p => `
+        <div class="project-card ${p.featured ? 'featured' : ''} fade-up">
+          <div class="project-tag ${p.tagType === 'devops' ? 'devops' : ''}">${p.tag}</div>
+          <div class="project-title">${p.title}</div>
+          <p class="project-desc">${p.description}</p>
+          <div class="project-tech">
+            ${p.technologies.map(t => `<span class="tech-pill">${t}</span>`).join('')}
+          </div>
+          <a href="${p.githubUrl}" target="_blank" rel="noopener" class="project-link">
+            Voir sur GitHub →
+          </a>
+        </div>
+      `).join('');
     }
-
-    // Créer une carte de projet
-    createProjectCard(project) {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card animate-on-scroll';
-        
-        const techTags = project.technologies.map(tech => 
-            `<span class="tech-tag">${tech}</span>`
-        ).join('');
-
-        projectCard.innerHTML = `
-            <div class="project-header">
-                <i class="${project.icon} project-icon"></i>
-                <h3>${project.title}</h3>
+  
+    /* ---------- STACK ---------- */
+    renderStack() {
+      const grid = document.getElementById('stack-grid');
+      if (!grid || !this.data) return;
+  
+      grid.innerHTML = this.data.stack.map(g => `
+        <div class="stack-group fade-up">
+          <div class="stack-group-title">${g.group}</div>
+          <div class="stack-items">
+            ${g.items.map(i => `
+              <div class="stack-item">
+                <i class="${i.icon} stack-icon"></i>
+                <span>${i.name}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+  
+    /* ---------- CONTACT ---------- */
+    renderContact() {
+      const p = this.data?.profile;
+      if (!p) return;
+  
+      /* liens */
+      const linksEl = document.getElementById('contact-links');
+      if (linksEl) {
+        linksEl.innerHTML = `
+          <a href="mailto:${p.email}" class="contact-link">
+            <div class="contact-link-icon">✉</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">Email</div>
+              ${p.email}
             </div>
-            <p>${project.description}</p>
-            <div class="tech-stack">
-                ${techTags}
+          </a>
+          <a href="${p.github}" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">⌥</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">GitHub</div>
+              github.com/espoirdev22
             </div>
-            <a href="${project.githubUrl}" class="project-link" target="_blank">
-                <i class="fab fa-github"></i> Voir sur GitHub
-            </a>
+          </a>
+          <a href="${p.linkedin}" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">in</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">LinkedIn</div>
+              diallo-salou-163608309
+            </div>
+          </a>
+          <a href="tel:${p.phone.replace(/\s/g,'')}" class="contact-link">
+            <div class="contact-link-icon">☎</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">Téléphone</div>
+              ${p.phone}
+            </div>
+          </a>
         `;
-
-        return projectCard;
+      }
+  
+      /* bloc info */
+      const infoEl = document.getElementById('contact-info');
+      if (infoEl) {
+        const rows = [
+          ['Localisation',  p.location,        false],
+          ['Formation',     p.formation,        false],
+          ['Certification', p.certification,    false],
+          ['Disponibilité', p.disponibilite,    true],
+          ['Docker Hub',    p.dockerhub,        false],
+        ];
+        infoEl.innerHTML = rows.map(([k, v, highlight]) => `
+          <div class="info-row">
+            <span class="info-key">${k}</span>
+            <span class="info-val ${highlight ? 'available' : ''}">${v}</span>
+          </div>
+        `).join('');
+      }
     }
-
-    // Rendu des compétences
-    renderSkills() {
-        const skillsGrid = document.querySelector('.skills-grid');
-        if (!skillsGrid || !this.data) return;
-
-        skillsGrid.innerHTML = '';
-
-        this.data.skills.forEach(skill => {
-            const skillCard = this.createSkillCard(skill);
-            skillsGrid.appendChild(skillCard);
-        });
-    }
-
-    // Créer une carte de compétence
-    createSkillCard(skill) {
-        const skillCard = document.createElement('div');
-        skillCard.className = 'skill-card animate-on-scroll';
-        
-        skillCard.innerHTML = `
-            <i class="${skill.icon} skill-icon"></i>
-            <h3>${skill.name}</h3>
-            <p>${skill.description}</p>
-            ${skill.level ? `<div class="skill-level">
-                <div class="skill-bar" style="width: ${skill.level}%"></div>
-            </div>` : ''}
+  
+    /* ---------- FOOTER ---------- */
+    renderFooter() {
+      const p = this.data?.profile;
+      if (!p) return;
+      const el = document.getElementById('footer-content');
+      if (el) {
+        el.innerHTML = `
+          <span>© 2026 ${p.name}</span>
+          <span>${p.location}</span>
+          <span>${p.email}</span>
         `;
-
-        return skillCard;
+      }
     }
-
-    // Rendu des informations de profil
-    renderProfile() {
-        if (!this.data || !this.data.profile) return;
-
-        const profile = this.data.profile;
-        
-        // Mettre à jour le nom et titre
-        const profileName = document.querySelector('.profile-name');
-        if (profileName) profileName.textContent = profile.name;
-
-        const profileTitle = document.querySelector('.profile-title');
-        if (profileTitle) profileTitle.textContent = profile.title;
-
-        // Mettre à jour les statistiques
-        if (profile.stats) {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            
-            if (statNumbers.length >= 1) {
-                statNumbers[0].textContent = profile.stats.satisfaction;
-            }
+  
+    /* ---------- TERMINAL ANIMÉ ---------- */
+    initTerminal() {
+      const lines = this.data?.terminal_lines || [
+        'Développeur Front-End & DevOps',
+        'React · Angular · Kubernetes',
+        'Orange API · AWS · CI/CD'
+      ];
+      const el = document.getElementById('terminal');
+      if (!el) return;
+  
+      let li = 0, ci = 0, deleting = false;
+  
+      const type = () => {
+        const line = lines[li];
+        if (!deleting) {
+          ci++;
+          el.innerHTML = line.slice(0, ci) + '<span class="cursor"></span>';
+          if (ci === line.length) {
+            deleting = true;
+            setTimeout(type, 2000);
+            return;
+          }
+        } else {
+          ci--;
+          el.innerHTML = line.slice(0, ci) + '<span class="cursor"></span>';
+          if (ci === 0) {
+            deleting = false;
+            li = (li + 1) % lines.length;
+          }
         }
-
-        // Mettre à jour les expertises
-        if (profile.expertise) {
-            const expertiseList = document.querySelector('.expertise-list');
-            if (expertiseList) {
-                expertiseList.innerHTML = '';
-                profile.expertise.forEach(expertise => {
-                    const expertiseItem = document.createElement('div');
-                    expertiseItem.className = 'expertise-item';
-                    expertiseItem.textContent = expertise;
-                    expertiseList.appendChild(expertiseItem);
-                });
-            }
-        }
-
-        // Mettre à jour les informations de contact
-        this.updateContactInfo(profile);
+        setTimeout(type, deleting ? 40 : 70);
+      };
+  
+      type();
     }
-
-    // Mettre à jour les informations de contact
-    updateContactInfo(profile) {
-        const contactItems = document.querySelectorAll('.contact-item');
-        
-        contactItems.forEach(item => {
-            const icon = item.querySelector('i');
-            const link = item.querySelector('a p') || item.querySelector('p');
-            
-            if (icon && link) {
-                if (icon.classList.contains('fa-envelope')) {
-                    link.textContent = profile.email;
-                    const emailLink = item.querySelector('a');
-                    if (emailLink) {
-                        emailLink.href = `mailto:${profile.email}`;
-                    }
-                } else if (icon.classList.contains('fa-github')) {
-                    link.textContent = profile.github;
-                } else if (icon.classList.contains('fa-linkedin')) {
-                    link.textContent = profile.linkedin;
-                } else if (icon.classList.contains('fa-phone')) {
-                    link.textContent = profile.phone;
-                }
-            }
-        });
-    }
-
-    // Rendu complet du portfolio
-    renderPortfolio() {
-        this.renderProjects();
-        this.renderSkills();
-        this.renderProfile();
-        // Réinitialiser les animations après le rendu
-        setTimeout(() => {
-            this.initScrollAnimations();
-        }, 100);
-    }
-
-    // Initialiser les animations au scroll
+  
+    /* ---------- SCROLL ANIMATIONS ---------- */
     initScrollAnimations() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('visible');
         });
-    }
-
-    // Navigation fluide
-    initSmoothScrolling() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+      }, { threshold: 0.1 });
+  
+      /* Observer les éléments existants */
+      document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  
+      /* Observer les éléments rendus dynamiquement */
+      const mutObs = new MutationObserver(() => {
+        document.querySelectorAll('.fade-up:not([data-observed])').forEach(el => {
+          el.setAttribute('data-observed', '1');
+          obs.observe(el);
         });
+      });
+      mutObs.observe(document.body, { childList: true, subtree: true });
     }
-
-    // Méthodes utilitaires pour ajouter/modifier des données
-    addProject(project) {
-        if (this.data && this.data.projects) {
-            project.id = this.data.projects.length + 1;
-            this.data.projects.push(project);
-            this.renderProjects();
-        }
-    }
-
-    updateProject(id, updatedProject) {
-        if (this.data && this.data.projects) {
-            const index = this.data.projects.findIndex(p => p.id === id);
-            if (index !== -1) {
-                this.data.projects[index] = { ...this.data.projects[index], ...updatedProject };
-                this.renderProjects();
-            }
-        }
-    }
-
-    removeProject(id) {
-        if (this.data && this.data.projects) {
-            this.data.projects = this.data.projects.filter(p => p.id !== id);
-            this.renderProjects();
-        }
-    }
-
-    // Obtenir les données pour utilisation externe
-    getData() {
-        return this.data;
-    }
-}
-
-// ===== FONCTIONS MENU MOBILE =====
-
-// Fonction pour basculer l'affichage du menu mobile
-function toggleMobileMenu() {
-    const navLinks = document.getElementById('navLinks');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    if (navLinks) {
-        navLinks.classList.toggle('active');
-        
-        // Changer l'icône du menu hamburger
-        const icon = mobileMenu.querySelector('i');
-        if (icon) {
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        }
-    }
-}
-
-// Fonction pour fermer le menu mobile
-function closeMobileMenu() {
-    const navLinks = document.getElementById('navLinks');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    if (navLinks) {
-        navLinks.classList.remove('active');
-        
-        // Remettre l'icône hamburger
-        const icon = mobileMenu.querySelector('i');
-        if (icon) {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    }
-}
-
-// Initialiser le portfolio quand le DOM est chargé
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialiser le portfolio
-    window.portfolioLoader = new PortfolioLoader();
-    
-    // Initialiser la navigation fluide
-    portfolioLoader.initSmoothScrolling();
-    
-    // ===== GESTION DU MENU MOBILE =====
-    
-    // Fermer le menu mobile quand on clique en dehors
-    document.addEventListener('click', function(event) {
-        const navLinks = document.getElementById('navLinks');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        // Si on clique en dehors du menu et qu'il est ouvert
-        if (navLinks && mobileMenu && 
-            !navLinks.contains(event.target) && 
-            !mobileMenu.contains(event.target) &&
-            navLinks.classList.contains('active')) {
-            closeMobileMenu();
-        }
-    });
-
-    // Fermer le menu mobile lors du redimensionnement de la fenêtre
-    window.addEventListener('resize', function() {
-        const navLinks = document.getElementById('navLinks');
-        if (navLinks && window.innerWidth > 768) {
-            closeMobileMenu();
-        }
-    });
-    
-    // ===== EFFET PARALLAXE =====
-    
-    // Effet de parallaxe simple pour le hero
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
-    });
-    
-    // ===== ANIMATION AU SCROLL =====
-    
-    // Animation supplémentaire pour les barres de compétences
-    const skillBars = document.querySelectorAll('.skill-bar');
-    const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const skillBar = entry.target;
-                const width = skillBar.style.width;
-                skillBar.style.width = '0%';
-                setTimeout(() => {
-                    skillBar.style.width = width;
-                }, 200);
-            }
+  
+    /* ---------- NAV ACTIVE ---------- */
+    initNav() {
+      const sections = document.querySelectorAll('section[id]');
+      const links    = document.querySelectorAll('.nav-links a');
+  
+      const navObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
         });
-    }, { threshold: 0.5 });
-    
-    // Observer les barres de compétences après un délai pour s'assurer qu'elles sont chargées
-    setTimeout(() => {
-        document.querySelectorAll('.skill-bar').forEach(bar => {
-            skillObserver.observe(bar);
-        });
-    }, 1000);
-});
+      }, { rootMargin: '-40% 0px -55% 0px' });
+  
+      sections.forEach(s => navObs.observe(s));
+    }
+  }
+  
+  /* Lance tout quand le DOM est prêt */
+  document.addEventListener('DOMContentLoaded', () => {
+    window.portfolio = new Portfolio();
+  });
+  
+  /* Chargement photo de profil */
+  function loadPhoto(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const placeholder = document.getElementById('avatar-placeholder');
+      const wrapper = document.getElementById('avatar-wrapper');
+      placeholder.style.display = 'none';
+      let img = wrapper.querySelector('.avatar-img');
+      if (!img) {
+        img = document.createElement('img');
+        img.className = 'avatar-img';
+        img.alt = 'Salou Diallo';
+        wrapper.insertBefore(img, placeholder);
+      }
+      img.src = e.target.result;
+      img.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  }
