@@ -49,18 +49,19 @@
       if (!grid || !this.data) return;
   
       grid.innerHTML = this.data.projects.map(p => `
-        <div class="project-card ${p.featured ? 'featured' : ''} fade-up">
-          <div class="project-tag ${p.tagType === 'devops' ? 'devops' : ''}">${p.tag}</div>
-          <div class="project-title">${p.title}</div>
-          <p class="project-desc">${p.description}</p>
-          <div class="project-tech">
-            ${p.technologies.map(t => `<span class="tech-pill">${t}</span>`).join('')}
-          </div>
-          <a href="${p.githubUrl}" target="_blank" rel="noopener" class="project-link">
-            Voir sur GitHub →
-          </a>
+      <div class="project-card ${p.featured ? 'featured' : ''} fade-up">
+        ${p.image ? `<img src="${p.image}" alt="Aperçu du projet ${p.title}" class="project-img" loading="lazy">` : ''}
+        <div class="project-tag ${p.tagType}">${p.tag}</div>
+        <div class="project-title">${p.title}</div>
+        <p class="project-desc">${p.description}</p>
+        <div class="project-tech">
+          ${p.technologies.map(t => `<span class="tech-pill">${t}</span>`).join('')}
         </div>
-      `).join('');
+        <a href="${p.githubUrl}" target="_blank" rel="noopener" class="project-link">
+          Voir sur GitHub →
+        </a>
+      </div>
+    `).join('');
     }
   
     /* ---------- STACK ---------- */

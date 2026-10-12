@@ -2,7 +2,7 @@
   "profile": {
     "name": "Salou Diallo",
     "title": "Développeur Front-End & DevOps",
-    "description": "Développeur front-end maîtrisant React et Angular, avec une culture DevOps solide — pipelines CI/CD, Kubernetes, monitoring Prometheus/Grafana et intégration API telecom Orange.",
+    "description": "Parti du développement web, je me suis tourné vers l'intelligence artificielle. Aujourd'hui en Master 1 IA, je combine machine learning et culture DevOps pour livrer des modèles qui tournent vraiment.",
     "email": "saloudiallo151@gmail.com",
     "phone": "+221 77 671 62 06",
     "github": "https://github.com/espoirdev22",
@@ -21,6 +21,28 @@
   ],
   "projects": [
     {
+      "id": 7,
+      "tag": "Machine Learning · MLOps",
+      "tagType": "ia",
+      "featured": true,
+      "title": "FraudGuard : détection de fraude mobile money",
+      "description": "Plateforme de détection des transactions frauduleuses sur le dataset PaySim. Modèle de classification exposé via une API FastAPI, dashboard React, suivi des expériences avec MLflow et pipeline CI/CD. Projet retenu pour le Demo Day du DIT (novembre 2026).",
+      "technologies": ["Python", "scikit-learn", "XGBoost", "FastAPI", "MLflow", "Docker"],
+      "image": "FraudGuard.png",
+      "githubUrl": "https://github.com/espoirdev22/smart-fraud-detection-platform.git"
+    },
+    {
+      "id": 8,
+      "tag": "Deep Learning · PyTorch",
+      "tagType": "ia",
+      "featured": true,
+      "title": "CNN from scratch vs Transfer Learning",
+      "description": "Comparaison d'un réseau convolutif entraîné de zéro avec un modèle pré-entraîné sur le dataset Cats vs Dogs. Data augmentation, entraînement sur Google Colab et analyse des performances des deux approches.",
+      "technologies": ["Python", "PyTorch", "torchvision", "CNN", "Transfer Learning", "Colab"],
+      "image": "cnn.png",
+      "githubUrl": "https://github.com/espoirdev22/cnn-catsdogs-DialloSalou.git"
+    },
+    {
       "id": 1,
       "tag": "React · Node.js · Télécom",
       "tagType": "front",
@@ -28,6 +50,7 @@
       "title": "Plateforme SMS & Appels — Orange API",
       "description": "Application web React pour la gestion des SMS sortants, appels sortants et historique de communication. Intégration de l'API Orange (SMS API, Voice API) via un backend Express sécurisé — les clés API ne sont jamais exposées côté client.",
       "technologies": ["React", "Node.js", "Express", "Orange API", "Axios", "Tailwind CSS"],
+      "image": "plateforme_sms.png",
       "githubUrl": "https://github.com/espoirdev22/plateforme_sms.git"
     },
     {
@@ -80,6 +103,7 @@
       "technologies": ["Python", "NLP", "seq2seq", "Preprocessing"],
       "githubUrl": "https://github.com/espoirdev22"
     }
+
   ],
   "stack": [
     {
@@ -136,6 +160,8 @@
   ],
   "terminal_lines": [
     "Développeur Front-End & DevOps",
+    "Master 1 IA. Machine learning, deep learning et MLOps",
+    "J’aime quand un modèle quitte le notebook pour servir de vrais utilisateurs.",
     "React · Angular · Kubernetes",
     "Orange API · AWS · CI/CD"
   ]

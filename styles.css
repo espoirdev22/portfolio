@@ -442,6 +442,21 @@ section {
   color: var(--violet-light);
 }
 
+.project-tag.ia {
+  background: rgba(46, 204, 113, 0.12);
+  color: #4ADE80;
+}
+
+.project-img {
+  width: calc(100% + 4rem);
+  margin: -2rem -2rem 1.5rem;
+  height: 190px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+
 .project-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.15rem;
